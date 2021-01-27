@@ -10,17 +10,17 @@ local apps = require('configuration.apps')
 local globalKeys =
   awful.util.table.join(
   -- Hotkeys
-  awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
+  awful.key({modkey}, 's', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
   -- Tag browsing
-  awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  awful.key({modkey}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  awful.key({modkey}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  --awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  --awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
   -- Default client focus
   awful.key(
     {modkey},
-    'd',
+    'l',
     function()
       awful.client.focus.byidx(1)
     end,
@@ -28,7 +28,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey},
-    'a',
+    'h',
     function()
       awful.client.focus.byidx(-1)
     end,
@@ -76,7 +76,7 @@ local globalKeys =
     {description = 'Switch to previous window', group = 'client'}
   ),
   -- Programms
-  awful.key(
+  --[[awful.key(
     {modkey},
     'l',
     function()
@@ -84,6 +84,7 @@ local globalKeys =
     end,
     {description = 'Lock the screen', group = 'awesome'}
   ),
+  ]]
   awful.key(
     {'Control','Shift'},
     'Print',
@@ -129,14 +130,14 @@ local globalKeys =
     {modkey},
     'p',
     function()
-      awful.util.spawn_with_shell('brave-browser')
+      awful.util.spawn_with_shell('brave')
     end,
     {description = 'Open Brave', group = 'launcher'}
   ),
   -- Standard program
   awful.key(
     {modkey},
-    'x',
+    'Return',
     function()
       awful.util.spawn_with_shell(apps.default.terminal)
     end,
@@ -272,7 +273,7 @@ local globalKeys =
     {},
     'XF86MonBrightnessUp',
     function()
-      awful.spawn('xbacklight -inc 10')
+      awful.spawn('backlight_control +10')
     end,
     {description = '+10%', group = 'hotkeys'}
   ),
@@ -280,7 +281,7 @@ local globalKeys =
     {},
     'XF86MonBrightnessDown',
     function()
-      awful.spawn('xbacklight -dec 10')
+      awful.spawn('backlight_control -10')
     end,
     {description = '-10%', group = 'hotkeys'}
   ),
