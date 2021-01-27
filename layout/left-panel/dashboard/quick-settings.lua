@@ -12,8 +12,8 @@ return wibox.widget {
   },
   require('widget.volume.volume-slider'),
   --brightness slider using xrandr as backend
-  require('widget.brightness.brightness-slider'),
+  --require('widget.brightness.brightness-slider'),
   --brightness slider using xbrightness (legacy) as backend
-  --require('widget.brightness.brightness-slider-xbacklight'),
+  require('widget.brightness.brightness-slider-xbacklight'),
   layout = wibox.layout.fixed.vertical
 }

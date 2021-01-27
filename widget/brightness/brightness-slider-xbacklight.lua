@@ -16,7 +16,7 @@ local slider =
 slider:connect_signal(
   'property::value',
   function()
-    spawn('xbacklight -set ' .. math.max(slider.value, 5))
+    spawn('backlight_control ' .. math.max(slider.value, 5))
   end
 )
 
