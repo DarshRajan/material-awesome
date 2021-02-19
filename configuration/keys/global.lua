@@ -133,6 +133,15 @@ local globalKeys =
     end,
     {description = 'Open Brave', group = 'launcher'}
   ),
+  -- Open File Manager
+  awful.key(
+    {modkey},
+    'e',
+    function()
+      awful.util.spawn(apps.default.files)
+    end,
+    {description = 'Open File Manager', group = 'launcher'}
+  ),
   -- Standard program
   awful.key(
     {modkey},
@@ -363,17 +372,17 @@ local globalKeys =
     function()
       awful.util.spawn_with_shell('vm-attach attach')
     end
-  ),
+  )
   -- Emoji typing
   -- setup info at https://gist.github.com/HikariKnight/8562837d28dec3674dba027c7892e6a5
-  awful.key(
+  --[[awful.key(
     {modkey},
     'e',
     function()
       awful.util.spawn_with_shell('emoji-toggle')
     end,
     {description = 'Toggle the ibus unimoji engine for writing emojis', group = 'hotkeys'}
-  )
+  )--]]
 )
 
 -- Bind all key numbers to tags.
